@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# Block AI training crawlers if you'd rather not be scraped
+# User-agent: GPTBot
+# Disallow: /
+
+Sitemap: https://btechaqua.com/sitemap.xml
