@@ -67,10 +67,12 @@ export function Footer() {
             </h4>
             <ul className="mt-6 space-y-3 text-sm text-secondary-foreground/80">
               <li className="flex items-start gap-2">
+                <span> Btech Aqua Industries </span>
+              </li>
+              <li className="flex items-start gap-2">
                 <MapPin className="mt-0.5 size-4 shrink-0 text-primary" />
-                <span> Btech aqua industries </span>
                 <span>
-                  Srinivasa nagar, Plot 226, pammadukulam
+                  Srinivasa nagar, Plot 226, pammadukulam, Ambattur
                   <br />
                   Chennai, Tamil Nadu 600052
                 </span>
