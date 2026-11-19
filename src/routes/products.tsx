@@ -2,36 +2,41 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ArrowRight, Check, Download } from "lucide-react";
-
-import productLite from "@/assets/product-lite.jpg";
-import productProflow from "@/assets/product-proflow.jpg";
-import productTitan from "@/assets/product-titan.jpg";
+import { machines } from "@/data/machines";
 
 export const Route = createFileRoute("/products")({
   head: () => ({
     meta: [
-      { title: "Industrial RO Plants & Water Purifiers | BTech Aqua Products" },
+      { title: "Bottle Filling, Soda & Jar Rinsing Machines | BTech Aqua" },
       {
         name: "description",
         content:
-          "Browse BTech Aqua's RO product range: Aqua-Lite 250 LPH, Pro-Flow 1000 LPH, and Titan-X 5000+ LPH industrial reverse osmosis systems with full specs.",
+          "Explore BTech Aqua's machine range: water bottle filling machines, automatic & manual fillers, soda and goli soda filling machines, and 20 L jar rinsing machines.",
       },
       {
         name: "keywords",
         content:
-          "250 LPH RO plant, 1000 LPH RO plant, 5000 LPH RO plant, industrial RO price, commercial RO water purifier",
+          "water bottle filling machine, manual bottle filling machine, soda machine, automatic filling machine, goli soda filling machine, manual filling machine, soda filling machine, jar rinsing machine",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://btechaqua.com/products" },
-      { property: "og:title", content: "Industrial RO Plants & Water Purifiers | BTech Aqua" },
+      {
+        property: "og:title",
+        content: "Bottle Filling, Soda & Jar Rinsing Machines | BTech Aqua",
+      },
       {
         property: "og:description",
-        content: "Industrial RO water purifiers from 250 LPH to 5000+ LPH.",
+        content:
+          "Automatic and manual filling machines, soda and goli soda fillers, and jar rinsing machines built for Indian bottling plants.",
       },
       { property: "og:image", content: "https://btechaqua.com/og-image.jpg" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "BTech Aqua Product Range" },
-      { name: "twitter:description", content: "RO systems from 250 LPH to 5000+ LPH." },
+      { name: "twitter:title", content: "BTech Aqua Machine Range" },
+      {
+        name: "twitter:description",
+        content:
+          "Filling, carbonation and jar washing machines for bottling plants.",
+      },
       { name: "twitter:image", content: "https://btechaqua.com/og-image.jpg" },
     ],
     links: [{ rel: "canonical", href: "https://btechaqua.com/products" }],
@@ -42,8 +47,18 @@ export const Route = createFileRoute("/products")({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Home", item: "https://btechaqua.com/" },
-            { "@type": "ListItem", position: 2, name: "Products", item: "https://btechaqua.com/products" },
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: "Home",
+              item: "https://btechaqua.com/",
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: "Machines",
+              item: "https://btechaqua.com/products",
+            },
           ],
         }),
       },
@@ -52,35 +67,24 @@ export const Route = createFileRoute("/products")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "ItemList",
-          itemListElement: [
-            {
+          itemListElement: machines.map((m, i) => ({
+            "@type": "ListItem",
+            position: i + 1,
+            item: {
               "@type": "Product",
-              name: "Aqua-Lite 250",
-              category: "Industrial RO Water Purifier",
+              name: m.series,
+              category: "Bottling & Filling Machinery",
               brand: { "@type": "Brand", name: "BTech Aqua" },
-              description: "250 LPH compact RO system for commercial kitchens, labs and clinics.",
+              description: m.description,
               image: "https://btechaqua.com/og-image.jpg",
-              offers: { "@type": "Offer", availability: "https://schema.org/InStock", priceCurrency: "INR", url: "https://btechaqua.com/products" },
+              offers: {
+                "@type": "Offer",
+                availability: "https://schema.org/InStock",
+                priceCurrency: "INR",
+                url: "https://btechaqua.com/products",
+              },
             },
-            {
-              "@type": "Product",
-              name: "Pro-Flow 1000",
-              category: "Industrial RO Water Purifier",
-              brand: { "@type": "Brand", name: "BTech Aqua" },
-              description: "1000 LPH heavy-duty RO with PLC monitoring for continuous industrial demand.",
-              image: "https://btechaqua.com/og-image.jpg",
-              offers: { "@type": "Offer", availability: "https://schema.org/InStock", priceCurrency: "INR", url: "https://btechaqua.com/products" },
-            },
-            {
-              "@type": "Product",
-              name: "Titan-X 5000",
-              category: "Industrial RO Water Purifier",
-              brand: { "@type": "Brand", name: "BTech Aqua" },
-              description: "5000+ LPH multi-stage skid engineered for beverage and process water lines.",
-              image: "https://btechaqua.com/og-image.jpg",
-              offers: { "@type": "Offer", availability: "https://schema.org/InStock", priceCurrency: "INR", url: "https://btechaqua.com/products" },
-            },
-          ],
+          })),
         }),
       },
     ],
@@ -88,176 +92,123 @@ export const Route = createFileRoute("/products")({
   component: ProductsPage,
 });
 
-const products = [
-  {
-    name: "Aqua-Lite 250",
-    series: "Lite-Series RO",
-    capacity: "250 LPH",
-    recovery: "65%",
-    pressure: "150 PSI",
-    stages: ["Sediment Filter", "Activated Carbon", "RO Membrane", "UV Polishing"],
-    applications: ["Commercial Kitchens", "Small Labs", "Cafes", "Clinics"],
-    description:
-      "A compact yet powerful RO system designed for small-scale operations that demand consistent purity without occupying floor space.",
-    image: productLite,
-  },
-  {
-    name: "Pro-Flow 1000",
-    series: "Pro-Flow Module",
-    capacity: "1000 LPH",
-    recovery: "75%",
-    pressure: "220 PSI",
-    stages: [
-      "Dual Media Filter",
-      "Activated Carbon",
-      "Anti-Scalant Dosing",
-      "RO Membrane Array",
-      "Post-Carbon Polish",
-    ],
-    applications: ["Manufacturing", "Hospitality", "Educational Institutes", "Hotels"],
-    description:
-      "The workhorse of the BTech lineup. A fully skid-mounted module with PLC control and remote monitoring capabilities.",
-    image: productProflow,
-  },
-  {
-    name: "Titan-X 5000",
-    series: "Titan-X Skid",
-    capacity: "5000+ LPH",
-    recovery: "82%",
-    pressure: "400 PSI",
-    stages: [
-      "Multi-Media Filtration",
-      "Carbon Towers",
-      "Water Softener",
-      "Dual-Stage RO",
-      "Ozonation / UV",
-    ],
-    applications: [
-      "Beverage Plants",
-      "Pharmaceuticals",
-      "Large Institutions",
-      "Textile Processing",
-    ],
-    description:
-      "Enterprise-grade purification for high-TDS feed water and continuous production lines requiring maximum uptime.",
-    image: productTitan,
-  },
-];
-
 function ProductsPage() {
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col bg-background">
       <Navbar />
 
       {/* Header */}
-      <section className="bg-muted/40 py-16 md:py-24">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl font-semibold tracking-tight text-foreground md:text-5xl">
-              Industrial RO Systems
-            </h1>
-            <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
-              From compact commercial units to heavy-duty enterprise skids, every
-              BTech Aqua system is built around the same principle: reliable
-              purity, engineered for your specific feedwater profile.
-            </p>
+      <section className="px-4 pt-8 pb-12 md:px-8 md:pt-12 md:pb-16">
+        <div className="mx-auto max-w-7xl">
+          <div className="relative overflow-hidden rounded-3xl bg-secondary px-8 py-16 text-secondary-foreground md:px-14 md:py-20">
+            <div className="pointer-events-none absolute -right-24 -top-24 size-80 rounded-full bg-primary/25 blur-[100px]" />
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-0 opacity-[0.07]"
+              style={{
+                backgroundImage:
+                  "radial-gradient(circle at 1px 1px, rgba(232,237,243,1) 1px, transparent 0)",
+                backgroundSize: "22px 22px",
+              }}
+            />
+            <div className="relative z-10 max-w-3xl">
+              <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-primary">
+                / Machine Range
+              </span>
+              <h1 className="font-display mt-4 text-4xl font-semibold tracking-tight text-balance md:text-6xl">
+                Filling, carbonation & jar washing machines.
+              </h1>
+              <p className="mt-6 max-w-xl text-base leading-relaxed text-secondary-foreground/70 md:text-lg">
+                Eight production-ready configurations — from a bench-top manual
+                filler to a 24-head automatic monobloc — each fabricated in SS
+                304 and commissioned at your site.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Product Grid */}
-      <section className="py-24">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="grid gap-12 lg:grid-cols-3">
-            {products.map((product) => (
+      {/* Machine grid */}
+      <section className="px-4 pb-20 md:px-8 md:pb-28">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-4 md:grid-cols-2">
+            {machines.map((machine) => (
               <article
-                key={product.name}
-                className="flex flex-col overflow-hidden rounded-2xl border border-border/60 bg-card"
+                key={machine.series}
+                className="group flex flex-col overflow-hidden rounded-3xl border border-border bg-card transition-all hover:-translate-y-1 hover:shadow-xl"
               >
-                <div className="overflow-hidden bg-muted">
+                <div className="relative overflow-hidden bg-muted">
                   <img
-                    src={product.image}
-                    alt={product.name}
-                    width={800}
-                    height={800}
+                    src={machine.image}
+                    alt={`${machine.series} manufactured by BTech Aqua`}
+                    width={1024}
+                    height={768}
                     loading="lazy"
-                    className="aspect-square w-full object-cover transition-transform duration-500 hover:scale-105"
+                    className="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
+                  <span className="absolute left-4 top-4 rounded-full border border-secondary/20 bg-background/90 px-3 py-1 font-mono text-[10px] font-semibold uppercase tracking-widest text-secondary backdrop-blur">
+                    {machine.category}
+                  </span>
                 </div>
-                <div className="flex flex-1 flex-col p-8">
-                  <div className="flex items-start justify-between gap-4">
-                    <div>
-                      <p className="text-xs font-semibold uppercase tracking-widest text-primary">
-                        {product.name}
-                      </p>
-                      <h2 className="mt-1 text-xl font-semibold text-foreground">
-                        {product.series}
-                      </h2>
-                    </div>
-                    <span className="shrink-0 rounded bg-muted px-2 py-1 font-mono text-xs text-muted-foreground">
-                      {product.capacity}
-                    </span>
-                  </div>
 
-                  <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-                    {product.description}
+                <div className="flex flex-1 flex-col p-7 md:p-8">
+                  <h2 className="font-display text-xl font-semibold text-card-foreground md:text-2xl">
+                    {machine.series}
+                  </h2>
+                  <p className="mt-1 font-mono text-xs uppercase tracking-widest text-primary">
+                    {machine.name}
                   </p>
 
-                  <div className="mt-6 grid grid-cols-2 gap-4 border-y border-border/60 py-4">
-                    <div>
-                      <span className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
-                        Recovery
-                      </span>
-                      <p className="font-mono text-sm text-foreground">
-                        {product.recovery}
-                      </p>
-                    </div>
-                    <div>
-                      <span className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
-                        Max Pressure
-                      </span>
-                      <p className="font-mono text-sm text-foreground">
-                        {product.pressure}
-                      </p>
-                    </div>
-                  </div>
+                  <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                    {machine.description}
+                  </p>
 
-                  <div className="mt-6">
-                    <span className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
-                      Filtration Stages
-                    </span>
-                    <ul className="mt-3 space-y-2">
-                      {product.stages.map((stage) => (
-                        <li key={stage} className="flex items-center gap-2 text-sm text-foreground">
-                          <Check className="size-3.5 text-primary" />
-                          {stage}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="mt-6">
-                    <span className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
-                      Common Applications
-                    </span>
-                    <div className="mt-3 flex flex-wrap gap-2">
-                      {product.applications.map((app) => (
-                        <span
-                          key={app}
-                          className="rounded bg-muted px-2 py-1 text-xs text-muted-foreground"
-                        >
-                          {app}
+                  <div className="mt-6 grid grid-cols-3 gap-4 rounded-2xl bg-muted p-4">
+                    {[
+                      { label: "Output", value: machine.output },
+                      { label: "Heads", value: machine.heads },
+                      { label: "Power", value: machine.power },
+                    ].map((spec) => (
+                      <div key={spec.label}>
+                        <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+                          {spec.label}
                         </span>
-                      ))}
-                    </div>
+                        <p className="mt-1 font-mono text-xs font-semibold text-foreground">
+                          {spec.value}
+                        </p>
+                      </div>
+                    ))}
                   </div>
 
-                  <div className="mt-auto pt-8">
+                  <ul className="mt-6 grid gap-2 sm:grid-cols-2">
+                    {machine.features.map((feature) => (
+                      <li
+                        key={feature}
+                        className="flex items-center gap-2 text-sm text-foreground"
+                      >
+                        <Check className="size-3.5 shrink-0 text-primary" />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div className="mt-6 flex flex-wrap gap-2">
+                    {machine.applications.map((app) => (
+                      <span
+                        key={app}
+                        className="rounded-full border border-border px-3 py-1 text-xs text-muted-foreground"
+                      >
+                        {app}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="mt-auto pt-7">
                     <Link
                       to="/contact"
-                      className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+                      className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-all hover:-translate-y-0.5 hover:bg-primary/90"
                     >
-                      Request Technical Specs
+                      Request Price & Specs
                       <ArrowRight className="size-4" />
                     </Link>
                   </div>
@@ -268,30 +219,30 @@ function ProductsPage() {
         </div>
       </section>
 
-      {/* Comparison CTA */}
-      <section className="border-y border-border/60 bg-muted/30 py-20">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="flex flex-col items-start justify-between gap-8 rounded-2xl border border-border/60 bg-card p-8 md:flex-row md:items-center md:p-12">
+      {/* CTA */}
+      <section className="px-4 pb-20 md:px-8 md:pb-28">
+        <div className="mx-auto max-w-7xl">
+          <div className="flex flex-col items-start justify-between gap-8 rounded-3xl border border-border bg-card p-8 md:flex-row md:items-center md:p-12">
             <div>
-              <h2 className="text-2xl font-semibold tracking-tight text-foreground">
-                Need help choosing the right capacity?
+              <h2 className="font-display text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
+                Not sure which machine fits your plant?
               </h2>
               <p className="mt-2 max-w-xl text-muted-foreground">
-                Our engineers can size a system based on your daily demand, TDS
-                levels, and available footprint.
+                Tell us your daily output target, bottle size, and floor space —
+                we will recommend the right configuration and share a quote.
               </p>
             </div>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-3">
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground transition-all hover:-translate-y-0.5 hover:bg-primary/90"
               >
                 Talk to an Engineer
                 <ArrowRight className="size-4" />
               </Link>
               <button
                 type="button"
-                className="inline-flex items-center justify-center gap-2 rounded-md border border-input bg-background px-6 py-3 text-sm font-medium text-foreground transition-colors hover:bg-accent"
+                className="inline-flex items-center justify-center gap-2 rounded-xl border border-border bg-background px-6 py-3.5 text-sm font-semibold text-foreground transition-colors hover:border-primary hover:text-primary"
               >
                 <Download className="size-4" />
                 Download Catalog

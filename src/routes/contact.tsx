@@ -1,7 +1,15 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { Mail, Phone, MapPin, Clock, ArrowRight, Send, MessageCircle } from "lucide-react";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Clock,
+  ArrowRight,
+  Send,
+  MessageCircle,
+} from "lucide-react";
 import { useState } from "react";
 
 export const Route = createFileRoute("/contact")({
@@ -20,15 +28,22 @@ export const Route = createFileRoute("/contact")({
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://btechaqua.com/contact" },
-      { property: "og:title", content: "Contact BTech Aqua | Get an Industrial RO Plant Quote" },
+      {
+        property: "og:title",
+        content: "Contact BTech Aqua | Get an Industrial RO Plant Quote",
+      },
       {
         property: "og:description",
-        content: "Talk to our engineers for a custom RO water treatment proposal.",
+        content:
+          "Talk to our engineers for a custom RO water treatment proposal.",
       },
       { property: "og:image", content: "https://btechaqua.com/og-image.jpg" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Contact BTech Aqua" },
-      { name: "twitter:description", content: "Get a custom RO plant proposal from our engineers." },
+      {
+        name: "twitter:description",
+        content: "Get a custom RO plant proposal from our engineers.",
+      },
       { name: "twitter:image", content: "https://btechaqua.com/og-image.jpg" },
     ],
     links: [{ rel: "canonical", href: "https://btechaqua.com/contact" }],
@@ -162,7 +177,9 @@ function ContactPage() {
                     <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                       Email
                     </span>
-                    <p className="text-sm text-foreground">info@btechaqua.com</p>
+                    <p className="text-sm text-foreground">
+                      info@btechaqua.com
+                    </p>
                   </div>
                 </div>
 

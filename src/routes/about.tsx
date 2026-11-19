@@ -22,15 +22,22 @@ export const Route = createFileRoute("/about")({
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://btechaqua.com/about" },
-      { property: "og:title", content: "About BTech Aqua | ISO-Certified RO Plant Manufacturer" },
+      {
+        property: "og:title",
+        content: "About BTech Aqua | ISO-Certified RO Plant Manufacturer",
+      },
       {
         property: "og:description",
-        content: "ISO-certified manufacturer of industrial RO systems, based in Ahmedabad, India.",
+        content:
+          "ISO-certified manufacturer of industrial RO systems, based in Ahmedabad, India.",
       },
       { property: "og:image", content: "https://btechaqua.com/og-image.jpg" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "About BTech Aqua" },
-      { name: "twitter:description", content: "ISO-certified industrial RO manufacturer in India." },
+      {
+        name: "twitter:description",
+        content: "ISO-certified industrial RO manufacturer in India.",
+      },
       { name: "twitter:image", content: "https://btechaqua.com/og-image.jpg" },
     ],
     links: [{ rel: "canonical", href: "https://btechaqua.com/about" }],
@@ -99,8 +106,8 @@ function AboutPage() {
             <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
               We are a team of engineers and manufacturers committed to solving
               water purity challenges at industrial scale. Based in Ahmedabad,
-              Gujarat, BTech Aqua designs and builds reverse osmosis systems that
-              keep production lines running and communities healthy.
+              Gujarat, BTech Aqua designs and builds reverse osmosis systems
+              that keep production lines running and communities healthy.
             </p>
           </div>
         </div>
@@ -133,15 +140,15 @@ function AboutPage() {
               <p className="mt-6 leading-relaxed text-muted-foreground">
                 BTech Aqua began with a simple belief: industrial water
                 purification should be reliable, measurable, and built to last.
-                Over the last decade, we have grown from a small fabrication shop
-                into a trusted supplier of RO plants for manufacturing,
-                pharmaceuticals, hospitality, and educational institutions across
-                India.
+                Over the last decade, we have grown from a small fabrication
+                shop into a trusted supplier of RO plants for manufacturing,
+                pharmaceuticals, hospitality, and educational institutions
+                across India.
               </p>
               <p className="mt-4 leading-relaxed text-muted-foreground">
                 Every system that leaves our facility is bench-tested for 48
-                hours, calibrated to the client's feedwater profile, and backed by
-                a dedicated service team. We do not sell promises — we ship
+                hours, calibrated to the client's feedwater profile, and backed
+                by a dedicated service team. We do not sell promises — we ship
                 performance.
               </p>
             </div>
