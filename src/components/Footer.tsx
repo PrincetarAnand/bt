@@ -68,15 +68,16 @@ export function Footer() {
             <ul className="mt-6 space-y-3 text-sm text-secondary-foreground/80">
               <li className="flex items-start gap-2">
                 <MapPin className="mt-0.5 size-4 shrink-0 text-primary" />
+                <span> Btech aqua industries </span>
                 <span>
-                  Industrial Estate Phase II, Plot 42
+                  Srinivasa nagar, Plot 226, pammadukulam
                   <br />
-                  Ahmedabad, Gujarat 380001
+                  Chennai, Tamil Nadu 600052
                 </span>
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="size-4 shrink-0 text-primary" />
-                <span>+91 79 4402 1100</span>
+                <span>+91 97311 81694</span>
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="size-4 shrink-0 text-primary" />
