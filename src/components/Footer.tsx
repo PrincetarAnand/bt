@@ -11,11 +11,13 @@ export function Footer() {
               <div className="flex size-8 items-center justify-center rounded-md bg-primary text-primary-foreground">
                 <Droplets className="size-5" strokeWidth={2} />
               </div>
-              <span className="text-lg font-semibold tracking-tight">BTech Aqua</span>
+              <span className="text-lg font-semibold tracking-tight">
+                BTech Aqua
+              </span>
             </div>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-secondary-foreground/70">
-              Precision-engineered reverse osmosis water purification systems for
-              industrial, commercial, and institutional applications.
+              Precision-engineered reverse osmosis water purification systems
+              for industrial, commercial, and institutional applications.
             </p>
           </div>
 
@@ -86,13 +88,20 @@ export function Footer() {
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-secondary-foreground/10 pt-8 md:flex-row">
           <p className="text-xs text-secondary-foreground/50">
-            © {new Date().getFullYear()} BTech Aqua Solutions. All rights reserved.
+            © {new Date().getFullYear()} BTech Aqua Solutions. All rights
+            reserved.
           </p>
           <div className="flex gap-6 text-xs text-secondary-foreground/50">
-            <Link to="/" className="transition-colors hover:text-secondary-foreground">
+            <Link
+              to="/"
+              className="transition-colors hover:text-secondary-foreground"
+            >
               Privacy Policy
             </Link>
-            <Link to="/" className="transition-colors hover:text-secondary-foreground">
+            <Link
+              to="/"
+              className="transition-colors hover:text-secondary-foreground"
+            >
               Terms of Service
             </Link>
           </div>

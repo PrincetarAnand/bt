@@ -6,7 +6,7 @@ const DEFAULT_MESSAGE =
 
 export function WhatsAppButton() {
   const href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-    DEFAULT_MESSAGE
+    DEFAULT_MESSAGE,
   )}`;
 
   return (
